@@ -1,5 +1,10 @@
 # dsh-eyes-ru — глаза для DeepSeek Harness
 
+![Platform](https://img.shields.io/badge/platform-Windows-0078d4)
+![License](https://img.shields.io/badge/license-MIT-green)
+![OCR](https://img.shields.io/badge/OCR-Windows%20Media-blue)
+
+
 Набор инструментов, который даёт ассистенту «зрение» на Windows: снимок экрана,
 активного окна или монитора, камера, чтение текста с экрана, описание кадра
 локальной моделью и разметка того, как человек говорит.
