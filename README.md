@@ -95,3 +95,4 @@ Windows.
 > **English:** agent eyes for DeepSeek Harness (DSH) — screen, window, monitor and
 > webcam capture, Windows OCR, local frame description, and Russian speech-tone and
 > emotion labels, packaged as agent tools and a plugin.
+Плагин опубликован в npm: [`dsh-eyes-ru`](https://www.npmjs.com/package/dsh-eyes-ru) — ставится из маркета плагинов внутри приложения.
