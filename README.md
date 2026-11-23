@@ -84,7 +84,7 @@ MIT. openSMILE, Smart Turn и модели эмоций — по лицензи�
 ## Плагин
 
 `plugin/` — bundle для DSH: ставится через **Plugins → Add plugin** (указать папку)
-и добавляет агенту инструменты `eyes_capture`, `eyes_text` и `eyes_camera_shot`.
+и добавляет агенту инструменты `eyes_capture`, `eyes_text`, `eyes_camera_shot`, а также `speech_tone` и `speech_emotion` — громкость, высота голоса и эмоция по записи речи.
 
 Пути к Python и к папке скриптов задаются в строке плагина в `cordis.patch.yml`.
 **Ключевые слова / keywords:** DeepSeek Harness, DSH плагин, зрение агента,

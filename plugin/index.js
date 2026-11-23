@@ -24,7 +24,7 @@ export function apply(ctx, config = {}) {
     const result = spawnSync(python, [eyes, ...args], {
       encoding: 'utf8',
       windowsHide: true,
-      env: { ...process.env, PYTHONIOENCODING: 'utf-8' },
+      env: { ...process.env, PYTHONIOENCODING: 'utf-8', HF_HUB_DISABLE_PROGRESS_BARS: '1', TRANSFORMERS_VERBOSITY: 'error' },
       timeout: 180000,
     })
     const output = `${result.stdout ?? ''}${result.stderr ?? ''}`.trim()
@@ -76,6 +76,44 @@ export function apply(ctx, config = {}) {
     parameters: {},
     output: TEXT_OUTPUT,
     execute: () => run(['camera']).text,
+  })
+
+  const toneScript = (name) => join(toolsDir, name)
+
+  const runScript = (scriptName, args) => {
+    const result = spawnSync(python, [toneScript(scriptName), ...args], {
+      encoding: 'utf8',
+      windowsHide: true,
+      timeout: 300000,
+      env: { ...process.env, PYTHONIOENCODING: 'utf-8', HF_HUB_DISABLE_PROGRESS_BARS: '1', TRANSFORMERS_VERBOSITY: 'error' },
+    })
+    const output = `${result.stdout ?? ''}${result.stderr ?? ''}`.trim()
+    if (result.status !== 0) {
+      return `не удалось: ${output.slice(-600)}`
+    }
+    return output
+  }
+
+  ctx.tools.register({
+    name: 'speech_tone',
+    description:
+      'Measure how a speech recording sounds: loudness, peak, pitch (F0) and duration. Useful to tell whether the speaker was loud or quiet, tense or calm.',
+    parameters: {
+      path: { type: 'string', description: 'Path to a WAV/audio file with speech.' },
+    },
+    output: TEXT_OUTPUT,
+    execute: (args) => runScript('tone_of_speech.py', [String(args.path ?? '')]),
+  })
+
+  ctx.tools.register({
+    name: 'speech_emotion',
+    description:
+      'Recognise the emotion in a Russian speech recording (neutral, angry, sad, positive…) with a Hubert model trained on the DUSHA dataset.',
+    parameters: {
+      path: { type: 'string', description: 'Path to a WAV/audio file with speech.' },
+    },
+    output: TEXT_OUTPUT,
+    execute: (args) => runScript('emotion_of_speech.py', [String(args.path ?? '')]),
   })
 
   ctx.logger?.info?.('eyes tools registered')
