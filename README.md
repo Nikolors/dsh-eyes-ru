@@ -75,3 +75,10 @@ python tools\eyes.py ask frame.jpg "Что на экране?"
 ## Лицензия
 
 MIT. openSMILE, Smart Turn и модели эмоций — по лицензиям их авторов.
+
+## Плагин
+
+`plugin/` — bundle для DSH: ставится через **Plugins → Add plugin** (указать папку)
+и добавляет агенту инструменты `eyes_capture`, `eyes_text` и `eyes_camera_shot`.
+
+Пути к Python и к папке скриптов задаются в строке плагина в `cordis.patch.yml`.

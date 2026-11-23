@@ -1,0 +1,6 @@
+- insert:
+    - id: eyes-ru
+      name: '@local/eyes-ru'
+      config:
+        pythonPath: 'C:\Users\ipdnv\dsh-voice\venv\Scripts\python.exe'
+        toolsDir: 'C:\work\workspace\tools'
