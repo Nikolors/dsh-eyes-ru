@@ -87,3 +87,11 @@ MIT. openSMILE, Smart Turn и модели эмоций — по лицензи�
 и добавляет агенту инструменты `eyes_capture`, `eyes_text` и `eyes_camera_shot`.
 
 Пути к Python и к папке скриптов задаются в строке плагина в `cordis.patch.yml`.
+**Ключевые слова / keywords:** DeepSeek Harness, DSH плагин, зрение агента,
+скриншот экрана, снимок активного окна, камера, OCR Windows, распознавание текста
+с экрана, описание кадра локальной моделью, эмоции в речи, просодия, русский язык,
+Windows.
+
+> **English:** agent eyes for DeepSeek Harness (DSH) — screen, window, monitor and
+> webcam capture, Windows OCR, local frame description, and Russian speech-tone and
+> emotion labels, packaged as agent tools and a plugin.
