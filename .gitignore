@@ -1,0 +1,9 @@
+﻿*.log
+*.pid
+*.jpg
+*.png
+*.onnx
+__pycache__/
+.venv/
+frames/
+dashscope-key.txt
